@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="004-create-audit-logs" author="admin">
+
+        <createTable tableName="audit_logs">
+            <column name="id" type="BIGSERIAL" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="actor_user_id" type="BIGINT"/>
+            <column name="action" type="VARCHAR(100)"/>
+            <column name="resource_type" type="VARCHAR(100)"/>
+            <column name="resource_id" type="VARCHAR(100)"/>
+            <column name="status" type="VARCHAR(20)"/>
+            <column name="message" type="TEXT"/>
+            <column name="correlation_id" type="VARCHAR(100)"/>
+            <column name="created_at" type="TIMESTAMP"/>
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

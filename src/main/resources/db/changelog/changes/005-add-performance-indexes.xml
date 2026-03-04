@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+        http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="005-add-performance-indexes" author="admin">
+
+        <createIndex indexName="idx_short_urls_user_created"
+                     tableName="short_urls">
+            <column name="user_id"/>
+            <column name="created_at" descending="true"/>
+        </createIndex>
+
+        <createIndex indexName="idx_click_events_short_url_id"
+                     tableName="url_click_events">
+            <column name="short_url_id"/>
+        </createIndex>
+
+    </changeSet>
+
+</databaseChangeLog>
+
